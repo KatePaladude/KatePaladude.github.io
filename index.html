@@ -547,3 +547,45 @@
     <footer>
         <p>© 2026 Rina Motion. All rights reserved. Made for VTubers & Artists with ✦</p>
 
+         <footer>
+        <p>© 2026 Rina Motion. All rights reserved. Made for VTubers & Artists with ✦</p>
+    </footer>
+
+</div> <!-- END OF CONTAINER -->
+
+<script>
+    function moveSlide(button, direction) {
+        const container = button.parentElement;
+        const track = container.querySelector('.carousel-track');
+        const slides = track.children;
+        const dotsContainer = container.querySelector('.carousel-dots');
+        const dots = dotsContainer ? dotsContainer.children : [];
+        
+        let index = parseInt(track.getAttribute('data-index') || '0');
+        index += direction;
+        
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        
+        track.setAttribute('data-index', index);
+        track.style.transform = `translateX(-${index * 100}%)`;
+        
+        // Перезавантажуємо iframe, щоб приховане відео ставало на паузу і звук не накладався
+        const currentIframes = track.querySelectorAll('iframe');
+        currentIframes.forEach(iframe => {
+            const src = iframe.src;
+            iframe.src = src; 
+        });
+        
+        if (dots.length > 0) {
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('active');
+            }
+            dots[index].classList.add('active');
+        }
+    }
+</script>
+
+</body>
+</html>
+
