@@ -187,7 +187,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        /* ADVANCED STYLISH CAROUSEL */
+                /* ADVANCED STYLISH CAROUSEL */
         .carousel-container {
             flex: 1;
             max-width: 50%;
@@ -218,48 +218,48 @@
             width: 100%;
             height: 100%;
             border: 0;
+            z-index: 1;
         }
 
-        /* STYLISH GLASS BUTTONS */
+        /* FIX: Кнопки гарантированно кликабельны и находятся на самом верхнем слое */
         .carousel-btn {
             position: absolute;
             top: 50% !important;
             transform: translateY(-50%) !important;
-            background: rgba(10, 10, 10, 0.6) !important;
+            background: rgba(10, 10, 10, 0.7) !important;
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             color: #fff !important;
             border: 1px solid rgba(255,255,255,0.1) !important;
-            width: 40px !important;
-            height: 40px !important;
+            width: 44px !important;
+            height: 44px !important;
             border-radius: 50% !important;
-            cursor: pointer;
+            cursor: pointer !important;
             display: flex !important;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem !important;
-            z-index: 100 !important;
+            font-size: 1.6rem !important;
+            z-index: 9999 !important; /* Поднимаем выше iframe */
+            pointer-events: auto !important; /* Разрешаем клики */
             opacity: 0;
             transition: all 0.2s ease;
             user-select: none;
         }
-
 
         .carousel-container:hover .carousel-btn {
             opacity: 1;
         }
 
         .carousel-btn:hover {
-            background: var(--accent-color);
-            color: #000;
-            border-color: var(--accent-color);
+            background: var(--accent-color) !important;
+            color: #000 !important;
+            border-color: var(--accent-color) !important;
             box-shadow: 0 0 15px rgba(255,230,0,0.4);
         }
 
-        .carousel-btn.prev { left: 20px; }
-        .carousel-btn.next { right: 20px; }
+        .carousel-btn.prev { left: 15px !important; }
+        .carousel-btn.next { right: 15px !important; }
 
-        /* CAROUSEL DOTS INDICATORS */
         .carousel-dots {
             position: absolute;
             bottom: 15px;
@@ -267,13 +267,13 @@
             transform: translateX(-50%);
             display: flex;
             gap: 8px;
-            z-index: 10;
+            z-index: 9999 !important; /* Точки тоже поднимаем над видео */
         }
 
         .dot {
             width: 6px;
             height: 6px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             transition: all 0.3s;
         }
