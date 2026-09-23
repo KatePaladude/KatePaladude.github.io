@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rina ✦ Motion Design & MV Commissions</title>
+    <style>
+        :root {
+            --bg-color: #0b0b0b;
+            --card-bg: #121212;
+            --accent-color: #ffe600;
+            --text-color: #e0e0e0;
+            --text-muted: #888888;
+            --border-color: #222222;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --- HEADER SECTION --- */
+        header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 50px;
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50px;
+            background-color: var(--card-bg);
+            border: 2px solid var(--accent-color);
+            object-fit: cover;
+        }
+
+        .header-text h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .header-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: rgba(255, 230, 0, 0.1);
+            color: var(--accent-color);
+            padding: 3px 10px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 4px;
+            margin-top: 8px;
+            border: 1px solid rgba(255, 230, 0, 0.2);
+        }
+
+        /* --- BIO & SOCIALS --- */
+        .bio-section {
+            margin-bottom: 50px;
+        }
+
+        .bio-section p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            color: #b5b5b5;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .social-btn {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .social-btn:hover {
+            border-color: var(--accent-color);
+            color: #fff;
+            background-color: #161616;
+        }
+
+        /* --- SECTION GENERIC STYLE --- */
+        h2.section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2.section-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            background-color: var(--accent-color);
+        }
+
+        /* --- COMMISSIONS (TIERS) --- */
+        .tiers-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .tier-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width: 768px) {
+            .tier-card {
+                grid-template-columns: 1fr;
+            }
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+
+        .tier-video {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            background-color: #000;
+        }
+
+        .tier-card.vertical-tier .tier-video {
+            padding-bottom: 100%;
+        }
+
+        .tier-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .tier-info {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tier-info-top h3 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .tier-duration {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .tier-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .tier-features li {
+            font-size: 0.95rem;
+            color: #b5b5b5;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tier-features li::before {
+            content: '✦';
+            color: var(--accent-color);
+            font-size: 0.8rem;
+        }
+
+        .tier-price-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .tier-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        /* --- INFO CALLOUTS --- */
+        .info-panel {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .info-panel h4 {
+            color: #fff;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        .info-panel p, .info-panel ul {
+            font-size: 0.95rem;
+            color: #a0a0a0;
+            padding-left: 15px;
+        }
+
+        /* --- PORTFOLIO GALLERY --- */
+        .portfolio-section {
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 600px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .portfolio-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .portfolio-desc {
+            padding: 15px;
+        }
+
+        .portfolio-desc h4 {
+            color: #fff;
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+
+        .portfolio-desc p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header>
+        <img src="avatar.png" alt="Rina Logo" class="avatar" onerror="this.style.display='none'">
+        <div class="header-text">
+            <h1>Rina</h1>
+            <p>Motion Designer & Video Editor</p>
+            <div class="status-badge">Commissions: Open</div>
+        </div>
+    </header>
+
+    <!-- BIO -->
+    <section class="bio-section">
+        <p>Hi, I’m Rina. I’m a motion designer creating music videos, lyrics videos, and kinetic typography. I mostly work with cover artists, indie musicians, and VTubers. I prefer to let my work speak for itself, focusing on track dynamics, smooth text movement, and catching the right mood of the song.</p>
+        
+        <div class="social-links">
+            <a href="https://x.com" target="_blank" class="social-btn">Twitter (X)</a>
+            <a href="https://t.me" target="_blank" class="social-btn">Telegram</a>
+            <a href="https://youtube.com" target="_blank" class="social-btn">YouTube</a>
+            <a href="https://instagram.com" target="_blank" class="social-btn">Instagram</a>
+            <a href="mailto:your-email@gmail.com" class="social-btn">Email</a>
+        </div>
+    </section>
+
+    <!-- COMMISSIONS (TIERS) -->
+    <section>
+        <h2 class="section-title">Commissions & Pricing</h2>
+
+        <!-- Short track discount -->
+        <div class="info-panel" style="border-color: var(--accent-color); background-color: rgba(255, 230, 0, 0.02);">
+            <h4 style="color: var(--accent-color);">💡 Discount for Short Tracks</h4>
+            <p>If your song is shorter than <b>2:00 minutes</b> (e.g., TV-size version, short cover, or preview), please contact me before ordering. I will send you a custom offer with a <b>-$15 to -$20 discount</b> off the base package price.</p>
+        </div>
+
+        <div class="tiers-grid">
+            
+            <!-- TIER 1 -->
+            <div class="tier-card vertical-tier">
+                <div class="tier-video">
+                    <iframe src="https://youtube.com" allowfullscreen></iframe>
+                </div>
+                <div class="tier-info">
+                    <div class="tier-info-top">
