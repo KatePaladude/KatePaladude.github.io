@@ -5,48 +5,356 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rina ✦ Motion Design & MV Commissions</title>
     <style>
-        :root { --bg-color: #0b0b0b; --card-bg: #121212; --accent-color: #ffe600; --text-color: #e0e0e0; --text-muted: #888888; --border-color: #222222; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding: 40px 20px; }
-        .container { max-width: 900px; margin: 0 auto; }
-        header { display: flex; align-items: center; gap: 25px; padding-bottom: 40px; border-bottom: 1px solid var(--border-color); margin-bottom: 50px; }
-        .avatar { width: 90px; height: 90px; border-radius: 50px; background-color: var(--card-bg); border: 2px solid var(--accent-color); object-fit: cover; }
-        .header-text h1 { font-size: 2.2rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
-        .header-text p { color: var(--text-muted); font-size: 1.1rem; }
-        .status-badge { display: inline-block; background-color: rgba(255, 230, 0, 0.1); color: var(--accent-color); padding: 3px 10px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; border-radius: 4px; margin-top: 8px; border: 1px solid rgba(255, 230, 0, 0.2); }
-        .bio-section { margin-bottom: 50px; }
-        .bio-section p { font-size: 1.1rem; max-width: 700px; color: #b5b5b5; margin-bottom: 25px; }
-        .social-links { display: flex; flex-wrap: wrap; gap: 12px; }
-        .social-btn { background-color: var(--card-bg); color: var(--text-color); text-decoration: none; padding: 10px 18px; border-radius: 6px; font-size: 0.95rem; font-weight: 500; border: 1px solid var(--border-color); transition: all 0.2s ease; }
-        .social-btn:hover { border-color: var(--accent-color); color: #fff; background-color: #161616; }
-        h2.section-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 30px; color: #fff; display: flex; align-items: center; gap: 10px; }
-        h2.section-title::before { content: ''; display: inline-block; width: 4px; height: 20px; background-color: var(--accent-color); }
-        .tiers-grid { display: flex; flex-direction: column; gap: 30px; margin-bottom: 50px; }
-        .tier-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; }
-        @media (max-width: 768px) { .tier-card { grid-template-columns: 1fr; } header { flex-direction: column; text-align: center; gap: 15px; } }
-        
-        /* Виправлений блок для MP4 відео */
-        .tier-video-container { width: 100%; min-height: 250px; background-color: #000; display: flex; align-items: center; justify-content: center; }
-        .tier-video-container video { width: 100%; height: 100%; object-fit: cover; display: block; }
-        
-        .tier-info { padding: 30px; display: flex; flex-direction: column; justify-content: space-between; }
-        .tier-info-top h3 { font-size: 1.3rem; color: #fff; margin-bottom: 5px; }
-        .tier-duration { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px; }
-        .tier-features { list-style: none; margin-bottom: 20px; }
-        .tier-features li { font-size: 0.95rem; color: #b5b5b5; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
-        .tier-features li::before { content: '✦'; color: var(--accent-color); font-size: 0.8rem; }
-        .tier-price-block { display: flex; align-items: center; justify-content: space-between; padding-top: 15px; border-top: 1px solid var(--border-color); }
-        .tier-price { font-size: 1.5rem; font-weight: 800; color: var(--accent-color); }
-        .info-panel { background-color: rgba(255, 255, 255, 0.02); border: 1px dashed var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 25px; }
-        .info-panel h4 { color: #fff; margin-bottom: 8px; font-size: 1.05rem; }
-        .info-panel p, .info-panel ul { font-size: 0.95rem; color: #a0a0a0; padding-left: 15px; }
-        .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 30px; margin-bottom: 50px; }
-        @media (max-width: 600px) { .portfolio-grid { grid-template-columns: 1fr; } }
-        .portfolio-item { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
-        .portfolio-desc { padding: 15px; }
-        .portfolio-desc h4 { color: #fff; font-size: 1.05rem; margin-bottom: 4px; }
-        .portfolio-desc p { font-size: 0.9rem; color: var(--text-muted); }
-        footer { text-align: center; padding-top: 40px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.85rem; }
+        :root {
+            --bg-color: #060606;
+            --card-bg: #0d0d0d;
+            --accent-color: #ffe600;
+            --text-color: #e2e2e2;
+            --text-muted: #666666;
+            --border-color: #161616;
+            --glow-color: rgba(255, 230, 0, 0.03);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* --- HEADER --- */
+        header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 60px;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 0 20px var(--glow-color);
+            object-fit: cover;
+        }
+
+        .header-text h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .header-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: rgba(255, 230, 0, 0.05);
+            color: var(--accent-color);
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 30px;
+            margin-top: 10px;
+            border: 1px solid rgba(255, 230, 0, 0.15);
+        }
+
+        /* --- BIO & SOCIALS --- */
+        .bio-section {
+            margin-bottom: 60px;
+        }
+
+        .bio-section p {
+            font-size: 1.15rem;
+            max-width: 750px;
+            color: #adadad;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .social-btn {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .social-btn:hover {
+            border-color: var(--accent-color);
+            color: #000;
+            background-color: var(--accent-color);
+            box-shadow: 0 0 15px rgba(255, 230, 0, 0.2);
+        }
+
+        /* --- COMMISSIONS --- */
+        h2.section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 35px;
+            color: #fff;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2.section-title::before {
+            content: '';
+            width: 3px;
+            height: 24px;
+            background-color: var(--accent-color);
+        }
+
+        .info-panel {
+            background-color: #090909;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 35px;
+        }
+
+        .info-panel h4 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .info-panel p, .info-panel ul {
+            font-size: 0.95rem;
+            color: #999;
+            padding-left: 5px;
+            list-style-position: inside;
+        }
+
+        /* --- TIERS STYLISH CARDS --- */
+        .tiers-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            margin-bottom: 60px;
+        }
+
+        .tier-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            min-height: 320px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .tier-card:hover {
+            border-color: rgba(255, 230, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ADVANCED STYLISH CAROUSEL */
+        .carousel-container {
+            flex: 1;
+            max-width: 50%;
+            min-width: 350px;
+            background-color: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+
+        .carousel-slide iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* STYLISH GLASS BUTTONS */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(10, 10, 10, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.05);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 300;
+            z-index: 10;
+            opacity: 0;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .carousel-container:hover .carousel-btn {
+            opacity: 1;
+        }
+
+        .carousel-btn:hover {
+            background: var(--accent-color);
+            color: #000;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px rgba(255,230,0,0.4);
+        }
+
+        .carousel-btn.prev { left: 20px; }
+        .carousel-btn.next { right: 20px; }
+
+        /* CAROUSEL DOTS INDICATORS */
+        .carousel-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: var(--accent-color);
+            width: 18px;
+            border-radius: 4px;
+        }
+
+        /* INFO CONTAINER */
+        .tier-info {
+            flex: 1;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 768px) {
+            .tier-card { flex-direction: column; min-height: auto; }
+            .carousel-container { max-width: 100%; min-width: 100%; }
+            header { flex-direction: column; text-align: center; gap: 15px; }
+        }
+
+        .tier-info-top h3 {
+            font-size: 1.4rem;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .tier-duration {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .tier-features {
+            list-style: none;
+        }
+
+        .tier-features li {
+            font-size: 0.95rem;
+            color: #adadad;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tier-features li::before {
+            content: '✦';
+            color: var(--accent-color);
+            font-size: 0.75rem;
+        }
+
+        .tier-price-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 20px;
+        }
+
+        .tier-price {
+            font-size: 1.7rem;
+            font-weight: 900;
+            color: var(--accent-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 0 20px 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 <body>
@@ -65,39 +373,40 @@
 
     <!-- BIO -->
     <section class="bio-section">
-        <p>Hi, I’m Rina. I’m a motion designer creating music videos, lyrics videos, and kinetic typography. I mostly work with cover artists, indie musicians, and VTubers. I prefer to let my work speak for itself, focusing on track dynamics, smooth text movement, and catching the right mood of the song.</p>
+        <p>Hi, I’m Rina. I’m a motion designer creating music videos, lyrics videos, and kinetic typography. I mostly work with cover artists, indie musicians, and VTubers. I focus on track dynamics, smooth text movement, and catching the right mood of the song.</p>
         
         <div class="social-links">
-            <a href="https://x.com/RinaU_u4u" target="_blank" class="social-btn">Twitter (X)</a>
-            <a href="https://t.me/rina_u4u" target="_blank" class="social-btn">Telegram</a>
-            <a href="https://www.youtube.com/@Rina-u4u" target="_blank" class="social-btn">YouTube</a>
+            <a href="https://x.com" target="_blank" class="social-btn">Twitter (X)</a>
+            <a href="https://t.me" target="_blank" class="social-btn">Telegram</a>
+            <a href="https://youtube.com" target="_blank" class="social-btn">YouTube</a>
             <a href="https://instagram.com" target="_blank" class="social-btn">Instagram</a>
-            <a href="mailto:
-katyamusu4u@gmail.com" class="social-btn">Email</a>
+            <a href="mailto:your-email@gmail.com" class="social-btn">Email</a>
         </div>
     </section>
 
-    <!-- COMMISSIONS (TIERS) -->
     <section>
         <h2 class="section-title">Commissions & Pricing</h2>
 
         <!-- Short track discount -->
-        <div class="info-panel" style="border-color: var(--accent-color); background-color: rgba(255, 230, 0, 0.02);">
+        <div class="info-panel" style="border-color: rgba(255, 230, 0, 0.3); background-color: rgba(255, 230, 0, 0.01);">
             <h4 style="color: var(--accent-color);">💡 Discount for Short Tracks</h4>
             <p>If your song is shorter than <b>2:00 minutes</b> (e.g., TV-size version, short cover, or preview), please contact me before ordering. I will send you a custom offer with a <b>-$15 to -$20 discount</b> off the base package price.</p>
         </div>
 
         <div class="tiers-grid">
             
-                        <!-- TIER 1 -->
-            <div class="tier-card vertical-tier">
-                <div class="tier-video-container">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/iw1Hs73UbUg?si=Nj2C0ZilVNhjSiAu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <!-- TIER 1 -->
+            <div class="tier-card">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="carousel-slide"><iframe src="https://youtube.com" allowfullscreen></iframe></div>
+                    </div>
+                    <div class="carousel-dots"><div class="dot active"></div></div>
                 </div>
                 <div class="tier-info">
                     <div class="tier-info-top">
                         <h3>TIER 1: Short-Form Content</h3>
-                        <p class="tier-duration">Up to 60 seconds | Vertical Format (9:16)</p>
+                        <p class="tier-duration">Up to 60s | Vertical Format (9:16)</p>
                         <ul class="tier-features">
                             <li>Synced text and typography</li>
                             <li>Basic background transitions</li>
@@ -113,17 +422,26 @@ katyamusu4u@gmail.com" class="social-btn">Email</a>
 
             <!-- TIER 2 -->
             <div class="tier-card">
-                <div class="tier-video-container">
-                    <video autoplay loop muted playsinline>
-                        <source src="tier1.mp4" type="video/mp4">
-                    </video>
+                <div class="carousel-container">
+                    <button class="carousel-btn prev" onclick="moveSlide(this, -1)">‹</button>
+                    <button class="carousel-btn next" onclick="moveSlide(this, 1)">›</button>
+                    <div class="carousel-track">
+                        <div class="carousel-slide"><iframe src="https://youtube.com" allowfullscreen></iframe></div>
+                        <div class="carousel-slide"><iframe src="https://youtube.com" allowfullscreen></iframe></div>
+                        <div class="carousel-slide"><iframe src="https://youtube.com" allowfullscreen></iframe></div>
+                    </div>
+                    <div class="carousel-dots">
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
                 </div>
                 <div class="tier-info">
                     <div class="tier-info-top">
                         <h3>TIER 2: Standard Full MV</h3>
-                        <p class="tier-duration">Up to 3:00 minutes | Horizontal Format (16:9)</p>
+                        <p class="tier-duration">Up to 3:00 mins | Horizontal Format (16:9)</p>
                         <ul class="tier-features">
-                            <li>Full song lyrics video</li>
+                            <li>Full song lyrics video / Group collab focus</li>
                             <li>Clean and smooth typography</li>
                             <li>Smooth camera movements & basic VFX</li>
                         </ul>
@@ -137,13 +455,22 @@ katyamusu4u@gmail.com" class="social-btn">Email</a>
 
             <!-- TIER 3 -->
             <div class="tier-card">
-                <div class="tier-video">
-                    <iframe src="https://youtu.be/WYIuXNPvSN4?si=cs7okHnILIdnis_M" allowfullscreen></iframe>
+                <div class="carousel-container">
+                    <button class="carousel-btn prev" onclick="moveSlide(this, -1)">‹</button>
+                    <button class="carousel-btn next" onclick="moveSlide(this, 1)">›</button>
+                    <div class="carousel-track">
+                        <div class="carousel-slide"><iframe src="https://youtube.com" allowfullscreen></iframe></div>
+                        <div class="carousel-slide"><iframe src="https://youtube.com" allowfullscreen></iframe></div>
+                    </div>
+                    <div class="carousel-dots">
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                    </div>
                 </div>
                 <div class="tier-info">
                     <div class="tier-info-top">
                         <h3>TIER 3: Premium Cinematic MV</h3>
-                        <p class="tier-duration">Up to 3:00 minutes | Horizontal Format (16:9)</p>
+                        <p class="tier-duration">Up to 3:00 mins | Horizontal Format (16:9)</p>
                         <ul class="tier-features">
                             <li>Complex motion design & heavy VFX</li>
                             <li>Advanced kinetic typography</li>
@@ -160,13 +487,22 @@ katyamusu4u@gmail.com" class="social-btn">Email</a>
 
             <!-- TIER 4 -->
             <div class="tier-card">
-                <div class="tier-video">
-                    <iframe src="https://www.youtube.com/watch?v=D8pFph4dWZc" allowfullscreen></iframe>
+                <div class="carousel-container">
+                    <button class="carousel-btn prev" onclick="moveSlide(this, -1)">‹</button>
+                    <button class="carousel-btn next" onclick="moveSlide(this, 1)">›</button>
+                    <div class="carousel-track">
+                        <div class="carousel-slide"><iframe src="https://youtube.com" allowfullscreen></iframe></div>
+                        <div class="carousel-slide"><iframe src="https://youtube.com" allowfullscreen></iframe></div>
+                    </div>
+                    <div class="carousel-dots">
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                    </div>
                 </div>
                 <div class="tier-info">
                     <div class="tier-info-top">
                         <h3>TIER 4: Original MV Remake</h3>
-                        <p class="tier-duration">Up to 3:00 minutes | Full MV Replication</p>
+                        <p class="tier-duration">Up to 3:00 mins | Full MV Replication</p>
                         <ul class="tier-features">
                             <li>Accurate frame-by-frame replication of an existing MV</li>
                             <li>Customized with your character artwork</li>
@@ -180,74 +516,34 @@ katyamusu4u@gmail.com" class="social-btn">Email</a>
                 </div>
             </div>
 
-        </div> <!-- END OF TIERS GRID -->
+        </div>
 
-        <!-- OPTIONS PANEL -->
         <div class="info-panel">
             <h4>⏳ Extra Time Surcharge</h4>
             <p>If your song exceeds the base 3 minutes, the following rates apply for every additional 30 seconds:</p>
-            <ul style="margin-top: 5px; margin-bottom: 15px; padding-left: 20px;">
-                <li>Tier 2 (Standard): +$15</li>
-                <li>Tier 3 (Premium): +$25</li>
-                <li>Tier 4 (Remake): +$35</li>
+            <ul style="margin-top: 8px; margin-bottom: 20px; padding-left: 15px;">
+                <li>Tier 2 (Standard): +$15 per 30s | Tier 3 (Premium): +$25 per 30s | Tier 4 (Remake): +$35 per 30s</li>
             </ul>
 
             <h4>🛠️ Add-ons (Additional Features)</h4>
-            <ul style="margin-top: 5px; padding-left: 20px;">
-                <li><b>Vertical Adaptation for Shorts/TikTok (9:16):</b> +$20 (Adapting the best 60s part of your finished horizontal MV into a vertical layout).</li>
-                <li><b>Basic Artwork Animation:</b> +$30 (Breathing, hair/eye movements for ONE character. Requires a layered .PSD file).</li>
-                <li><b>Advanced Artwork Separation + Animation:</b> +$50 (Manually cutting a flat PNG/JPEG image into layers for a 3D parallax effect and full animation. Price per ONE character. Adds +3-5 days to deadline).</li>
+            <ul style="margin-top: 8px; padding-left: 15px;">
+                <li><b>Vertical Adaptation for Shorts/TikTok (9:16):</b> +$20</li>
+                <li><b>Basic Artwork Animation:</b> +$30 (Breathing, hair/eye movements for ONE character).</li>
+                <li><b>Advanced Artwork Separation + Animation:</b> +$50 (Flat image to 3D parallax. Adds +3-5 days to TAT).</li>
                 <li><b>Additional Revision Round:</b> +$15</li>
             </ul>
         </div>
 
-        <!-- TERMS OF SERVICE -->
         <div class="info-panel">
             <h4>⚠️ Terms of Service</h4>
-            <ul style="margin-top: 5px; padding-left: 20px;">
-                <li><b>Commercial Rights:</b> Fully included in all packages (YouTube and streaming platform monetization is allowed).</li>
-                <li><b>Revision Policy:</b> One revision round means a compiled list of changes you send me at once after watching the video draft. Please double-check your notes before sending.</li>
-                <li><b>Assets:</b> I do video editing and motion design only. I do not draw character artwork from scratch. All illustrations must be provided by the client.</li>
+            <ul style="margin-top: 8px; padding-left: 15px;">
+                <li><b>Commercial Rights:</b> Fully included (YouTube monetization is allowed).</li>
+                <li><b>Revision Policy:</b> One revision round means a compiled list of changes sent at once.</li>
+                <li><b>Assets:</b> I do motion design only. All illustrations must be provided by the client.</li>
             </ul>
-        </div>
-    </section>
-
-    <!-- FEATURED PROJECTS PORTFOLIO -->
-    <section class="portfolio-section">
-        <h2 class="section-title">Featured Projects</h2>
-        
-        <div class="portfolio-grid">
-            
-            <!-- Project 1 -->
-            <div class="portfolio-item">
-                <div class="tier-video">
-                    <iframe src="https://youtube.com" allowfullscreen></iframe>
-                </div>
-                <div class="portfolio-desc">
-                    <h4>Darling (Ukrainian Cover)</h4>
-                    <p>Full-cycle production showcase: vocals, illustrations, 3D layer depth blending, and custom kinetic typography.</p>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="portfolio-item">
-                <div class="tier-video">
-                    <iframe src="https://youtube.com" allowfullscreen></iframe>
-                </div>
-                <div class="portfolio-desc">
-                    <h4>Vocaloid Style Showcase</h4>
-                    <p>Example of heavy shape motion design, camera tracking, and rapid text synchronization under a fast-paced track.</p>
-                </div>
-            </div>
-
         </div>
     </section>
 
     <footer>
         <p>© 2026 Rina Motion. All rights reserved. Made for VTubers & Artists with ✦</p>
-    </footer>
 
-</div>
-
-</body>
-</html>
